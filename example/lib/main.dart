@@ -20,11 +20,15 @@ void main() {
   );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen(apiVersionProvider, (_, version) {
+      CompatibleScope.containerOf(context).update(version);
+    });
+
     return const MaterialApp(
       home: MyHomePage(),
     );

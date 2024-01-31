@@ -88,9 +88,6 @@ class VersionButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.listen(apiVersionProvider, (_, version) {
-      CompatibleScope.containerOf(context).update(version);
-    });
     return SizedBox(
       width: double.infinity,
       child: OutlinedButton(
